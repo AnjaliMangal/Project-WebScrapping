@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mission to Mars</title>
+  <link rel="stylesheet" href="stylesheet.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container-fluid">
+    <!-- section for  Mars news and title -->
+    <div class="jumbotron text-center">
+      <h1>Mission to Mars</h1>
+      <p>Lets Try</p>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape new Mars Data !</a></p>
+    </div>
+    <h2><strong>The latest news about mars is :</strong></h2>
+    <h3><strong>Title::: {{ data.news_title }} </strong> </h3>
+    <p><strong>Details:::</strong> {{ data.news_p }}  </p>
+  </div>
+  </div>
+
+     <!-- section for  Mars Image / Weather on Mars / Mars Facts -->
+     <div class="row">
+        <div class="col-md-8">
+            <div class="panel">
+                <div class="panel-body">
+                    <h2>Featured Mars Image</h2>
+                    <img src=  {{ data.mars_image }} alt="" style="float:left">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel border">
+                <div class="panel-body">
+                    <h2>Current Weather on Mars</h2>
+                    <p>{{ data.mars_weather }}</p>
+                </div>
+            </div>
+        </div>
+                   
+        
+        <div class="col-md-1"></div>
+        <div>
+            <table>
+                {{data.mars_facts | safe}}
+            </table>
+        </div>
+    </div>
+ 
+     <!-- Mars Hemispheres -->
+     <h2 style="text-align:center"><strong>Mars Hemispheres</strong></h2>
+     <div class="row" style="padding-bottom:20px">
+         <div class="col-sm-1"></div>
+         <div class="col-sm-5 border">
+             <img src={{ data.mars_hemi_data[0]["img_url"] }} alt="" style="width:100%">
+             <p class="caption">{{ data.mars_hemi_data[0]["title"] }}</p>
+         </div>
+         <div class="col-sm-5 border" >
+             <img src={{ data.mars_hemi_data[1]["img_url"] }} alt="" style="width:100%">
+             <p class="caption">{{ data.mars_hemi_data[1]["title"] }}</p>
+         </div>
+         <div class="col-sm-1"></div>
+     </div>
+     <div class="row">
+         <div class="col-sm-1"></div>
+         <div class="col-sm-5 border" >
+             <img src={{ data.mars_hemi_data[2]["img_url"] }} alt="" style="width:100%">
+             <p class="caption">{{ data.mars_hemi_data[2]["title"] }}</p>
+         </div>
+         <div class="col-sm-5 border" >
+             <img src={{ data.mars_hemi_data[3]["img_url"] }} alt="" style="width:100%">
+             <p class="caption">{{ data.mars_hemi_data[3]["title"] }}</p>
+         </div>
+         <div class="col-sm-1"></div>
+     </div> 
+</body>
+
+</html>
